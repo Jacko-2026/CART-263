@@ -17,6 +17,9 @@ class SausageDog extends Animal {
   mousePressed() {
     if (this.overlap (mouseX, mouseY)) {
       this.found = true;
+      timerValue = 59;
+      state = 'levelGameOver';
+      bark.play();
     }
   }
 }
