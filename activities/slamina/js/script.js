@@ -140,6 +140,17 @@ const animals =  [
     let currentAnimal = '';
     let currentAnswer = '';
 
+    // Sounds
+    let rightAnswer;
+    let wrongAnswer;
+
+    function preload() {
+    // Sounds
+      soundFormats('wav');
+      rightAnswer = loadSound('assets/sounds/ding');
+      wrongAnswer = loadSound('assets/sounds/buzz');
+    }
+
 function setup() {
   createCanvas(windowHeight, windowHeight);
 
@@ -162,6 +173,7 @@ function draw() {
 
   if (currentAnswer === currentAnimal) {
     fill(0, 255, 0);
+    rightAnswer.play();
   }
   else {
     fill(255, 0, 0);
