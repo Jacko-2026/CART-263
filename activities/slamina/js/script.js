@@ -173,7 +173,6 @@ function draw() {
 
   if (currentAnswer === currentAnimal) {
     fill(0, 255, 0);
-    rightAnswer.play();
   }
   else {
     fill(255, 0, 0);
@@ -182,6 +181,13 @@ function draw() {
 }
 
 function mousePressed() {
+  if (currentAnswer === currentAnimal) {
+    rightAnswer.play();
+  }
+  else {
+    wrongAnswer.play();
+  }
+
   currentAnimal = random(animals);
   let reverseAnimal = reverseString(currentAnimal);
   responsiveVoice.speak(reverseAnimal);
