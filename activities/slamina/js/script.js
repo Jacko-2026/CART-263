@@ -141,6 +141,8 @@ const animals =  [
     let currentAnswer = '';
 
 function setup() {
+  createCanvas(windowHeight, windowHeight);
+
   if (annyang) {
     let commands = {
       'I think it is *animal': guessAnimal
@@ -156,7 +158,15 @@ function setup() {
 }
 
 function draw() {
+  background (0);
 
+  if (currentAnswer === currentAnimal) {
+    fill(0, 255, 0);
+  }
+  else {
+    fill(255, 0, 0);
+  }
+  text(currentAnswer, width/2, height/2);
 }
 
 function mousePressed() {
@@ -166,7 +176,7 @@ function mousePressed() {
 }
 
 function guessAnimal(animal) {
-  currentAnswer = animal;
+  currentAnswer = animal.toLowerCase();
   console.log(currentAnswer);
 }
 
