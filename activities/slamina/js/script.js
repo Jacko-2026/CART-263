@@ -147,6 +147,7 @@ function setup() {
     };
     annyang.addCommands(commands);
     annyang.start();
+    annyang.debug(true);
 
     textSize(32);
     textStyle(BOLD);
