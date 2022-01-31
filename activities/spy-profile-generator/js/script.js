@@ -68,12 +68,12 @@ Description of draw()
 function draw() {
   background(255);
 
-  let profile = '** SPY PROFILE! DO NOT DISTRIBUTE! **
+  let profile = '** SPY PROFILE! DO NOT DISTRIBUTE! **'
 
-Name: ${spyProfile.name}
-Alias: ${spyProfile.alias}
-Secret Weapon: ${spyProfile.secretWeapon}
-Password: ${spyProfile.password}';
+'Name: ${spyProfile.name}'
+'Alias: ${spyProfile.alias}'
+'Secret Weapon: ${spyProfile.secretWeapon}'
+'Password: ${spyProfile.password}';
 
   push();
   textFont('Courier, monospace');
