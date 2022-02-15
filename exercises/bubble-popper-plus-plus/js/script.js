@@ -29,7 +29,7 @@ let poppingSound;
 
 function preload() {
   // Sounds
-  soundFormats('mp3');
+  soundFormats('wav');
   poppingSound = loadSound('assets/sounds/pop');
 }
 
