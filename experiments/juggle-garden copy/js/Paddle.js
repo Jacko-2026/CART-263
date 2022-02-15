@@ -9,6 +9,9 @@ class Paddle {
 
   move() {
     this.x = mouseX;
+    // Constrain User to Canvas
+    this.x = constrain(this.x, 0, width);
+    this.y = constrain(this.y, 0, height);
   }
 
   display(){

@@ -36,10 +36,6 @@ function draw() {
       ball.display();
     }
   }
-
-  // Constrain User to Canvas
-  paddle.x = constrain(paddle.x, 0, width);
-  paddle.y = constrain(paddle.y, 0, height);
 }
 
 function simulation(){
