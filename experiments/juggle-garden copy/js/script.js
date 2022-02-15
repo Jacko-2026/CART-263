@@ -9,7 +9,7 @@ let numBalls = 3;
 
 // Timer
 let iText = ``;
-let timerValue = 10;
+let timerValue = 30;
 
 function setup() {
   createCanvas(800,800);
@@ -61,19 +61,19 @@ function draw() {
 function displayTimer() {
   if (timerValue >= 10) {
     textSize(30);
-    fill(255, 255, 255);
+    fill(255);
     textAlign(CENTER, CENTER)
     text("0:" + timerValue, 400, 25);
   }
   if (timerValue < 10) {
     textSize(30);
-    fill(255, 255, 255);
+    fill(255);
     textAlign(CENTER, CENTER)
     text('0:0' + timerValue, 400, 25);
   }
   if (timerValue == 0) {
     textSize(30);
-    fill(255, 255, 255);
+    fill(255);
     text('Level Over', 400, 60);
   }
 }
