@@ -30,7 +30,7 @@ let poppingSound;
 function preload() {
   // Sounds
   soundFormats('wav');
-  poppingSound = loadSound('assets/sounds/pop');
+  poppingSound = loadSound('assets/sounds/Pop.wav');
 }
 
 function setup() {
