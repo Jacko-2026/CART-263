@@ -39,17 +39,23 @@ class Ball {
         this.y + this.size/2 > paddle.y - paddle.height/2 &&
         this.y - this.size/2 < paddle.y + paddle.height/2) {
 
-    // Bounce
+    // Bounce (Paddle)
     let dx = this.x - paddle.x;
     this.vx = this.vx + map(dx,-paddle.width/2,paddle.width/2,-2,2);
-
+      this.vy = -this.vy;
+      this.ay = 0;
+    }
+    // Bounce (Canvas)
+    if (this.x < width) {
+    let dx2 = this.x - width;
+    this.vx = this.vx + map(dx2,-width/2,width/2,-2,2);
       this.vy = -this.vy;
       this.ay = 0;
     }
 
-      if (this.y > height) {
-        paddle.width = paddle.width -15;
-      }
+    if (this.y > height) {
+      paddle.width = paddle.width -15;
+    }
   }
 
   display() {
