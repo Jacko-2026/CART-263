@@ -29,6 +29,8 @@ class Ball {
     if (this.y - this.size/2 > height) {
       this.active = false;
     }
+    // Constrain User to Canvas
+    this.x = constrain(this.x, 0, width);
   }
 
   bounce(paddle) {
