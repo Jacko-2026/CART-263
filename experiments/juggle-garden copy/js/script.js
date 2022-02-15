@@ -37,15 +37,3 @@ function draw() {
     }
   }
 }
-
-function simulation(){
-  for (let i = 0; i < superBalls.length; i++) {
-    let superBall = superBalls[i];
-    if (superBall.active === false) {
-    state = 'badEnding';
-    }
-    if (superBall.x > 800 || superBall.x < 0) {
-      state = 'goodEnding'
-    }
-  }
-}

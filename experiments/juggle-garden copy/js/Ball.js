@@ -29,7 +29,7 @@ class Ball {
     if (this.y - this.size/2 > height) {
       this.active = false;
     }
-    // Constrain User to Canvas
+    // Constrain Ball to Canvas
     this.x = constrain(this.x, 0, width);
   }
 
@@ -46,6 +46,10 @@ class Ball {
       this.vy = -this.vy;
       this.ay = 0;
     }
+
+      if (this.y > height) {
+        paddle.width = paddle.width -15;
+      }
   }
 
   display() {
