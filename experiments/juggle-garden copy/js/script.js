@@ -5,7 +5,7 @@ let gravityForce = 0.0025;
 let paddle;
 
 let balls = [];
-let numBalls = 10;
+let numBalls = 3;
 
 
 function setup() {
@@ -36,6 +36,10 @@ function draw() {
       ball.display();
     }
   }
+
+  // Constrain User to Canvas
+  paddle.x = constrain(paddle.x, 0, width);
+  paddle.y = constrain(paddle.y, 0, height);
 }
 
 function simulation(){
