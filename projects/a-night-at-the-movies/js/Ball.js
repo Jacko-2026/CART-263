@@ -46,8 +46,9 @@ class Ball {
       this.ay = 0;
     }
 
+    paddle.width = constrain(paddle.width, 0, 90);
     if (this.y > height) {
-      paddle.width = paddle.width -20;
+      paddle.width -= 10;
     }
   }
 

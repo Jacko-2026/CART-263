@@ -20,7 +20,7 @@ function setup() {
 
   paddle = new Paddle(140,18);
 
-  if (paddle.width < 0) {
+  if (paddle.width === 0) {
     state = 'levelGameOver';
   }
 
