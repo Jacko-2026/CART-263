@@ -47,7 +47,7 @@ class Ball {
     }
 
     if (this.y > height) {
-      paddle.width = paddle.width -15;
+      paddle.width = paddle.width -20;
     }
   }
 
