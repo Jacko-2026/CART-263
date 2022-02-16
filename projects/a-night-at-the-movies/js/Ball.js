@@ -45,17 +45,23 @@ class Ball {
       this.vy = -this.vy;
       this.ay = 0;
     }
-    // Bounce (Canvas)
-    if (this.x < width) {
-    let dx2 = this.x - width;
-    this.vx = this.vx + map(dx2,-width/2,width/2,-2,2);
-      this.vy = -this.vy;
-      this.ay = 0;
-    }
 
     if (this.y > height) {
       paddle.width = paddle.width -15;
     }
+  }
+
+  bounceCanvas() {
+    if (this.x + this.size/2 >= width) {
+      this.x = width - this.size/2;
+      this.vx = -this.vx;
+    }
+    else if (this.x - this.size/2 <= 0) {
+      this.x = 0 + this.size/2;
+      this.vx = -this.vx;
+    }
+
+    this.x += this.vx;
   }
 
   display() {

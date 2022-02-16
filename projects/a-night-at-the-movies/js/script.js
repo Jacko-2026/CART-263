@@ -43,6 +43,7 @@ function draw() {
       ball.gravity(gravityForce);
       ball.move();
       ball.bounce(paddle);
+      ball.bounceCanvas();
       ball.display();
     }
   }
