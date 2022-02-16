@@ -46,9 +46,13 @@ class Ball {
       this.ay = 0;
     }
 
-    paddle.width = constrain(paddle.width, 0, 90);
     if (this.y > height) {
       paddle.width -= 10;
+    }
+    paddle.width = constrain(paddle.width, 0, 90);
+
+    if (paddle.width <= 0) {
+      state = 'levelGameOver';
     }
   }
 

@@ -20,10 +20,6 @@ function setup() {
 
   paddle = new Paddle(140,18);
 
-  if (paddle.width === 0) {
-    state = 'levelGameOver';
-  }
-
   for (let i = 0; i < numBalls; i++) {
     let x = random(0,width);
     let y = random(-400,-100);
@@ -112,17 +108,18 @@ function title() {
 
   if ((state === 'title') && (keyIsDown(13))) {
     state = 'level1';
-    numBalls = numBalls +3;
+    numBalls += 3;
+    paddle.width = 90;
   }
-  timerValue = 59;
+  timerValue = 15;
 }
 
 function level1() {
 
-  if (timerValue < 55) {
+  if (timerValue < 15) {
     levelText = ``;
   }
-  if (timerValue > 55) {
+  if (timerValue > 15) {
     levelText = `[BOUNCE THE BALLS]`;
   }
 
@@ -174,7 +171,7 @@ function levelGameOver() {
 
   if (keyIsDown(69)) {
     state = 'title';
-    timerValue = 59;
+    timerValue = 10000000;
   }
 }
 
@@ -184,7 +181,7 @@ function paused() {
   square(0, 0, 10000)
   pop();
 
-  timerValue = 59;
+  timerValue = 10000000;
 
   push();
   textSize(45);
@@ -202,7 +199,6 @@ function paused() {
 
   if (keyIsDown(69)) {
     state = 'level1';
-    timerValue = 59;
   }
 }
 
