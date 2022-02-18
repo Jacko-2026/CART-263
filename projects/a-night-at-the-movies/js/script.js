@@ -110,6 +110,7 @@ function title() {
 
   if ((state === 'title') && (keyIsDown(13))) {
     state = 'level1';
+    numBalls = 3;
     createBalls();
     paddle.width = 90;
   }
@@ -117,7 +118,6 @@ function title() {
 }
 
 function level1() {
-  numBalls = 3;
 
   if (timerValue < 15) {
     levelText = ``;
