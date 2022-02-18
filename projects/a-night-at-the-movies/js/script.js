@@ -5,7 +5,7 @@ let gravityForce = 0.0025;
 let paddle;
 
 let balls = [];
-let numBalls = 3;
+let numBalls = undefined;
 
 // Timer
 let iText = ``;
@@ -115,6 +115,7 @@ function title() {
 }
 
 function level1() {
+  numBalls = 3;
 
   if (timerValue < 15) {
     levelText = ``;
