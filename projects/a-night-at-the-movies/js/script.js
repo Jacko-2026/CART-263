@@ -20,13 +20,6 @@ function setup() {
 
   paddle = new Paddle(140,18);
 
-  for (let i = 0; i < numBalls; i++) {
-    let x = random(0,width);
-    let y = random(-400,-100);
-    let ball = new Ball(x,y);
-    balls.push(ball);
-  }
-
   // Create Timer
   push();
   fill(28, 0, 189);
@@ -56,6 +49,15 @@ function draw() {
     levelGameOver();
   } else if (state === 'paused') {
     paused();
+  }
+}
+
+function createBalls() {
+  for (let i = 0; i < numBalls; i++) {
+    let x = random(0,width);
+    let y = random(-400,-100);
+    let ball = new Ball(x,y);
+    balls.push(ball);
   }
 }
 
@@ -116,6 +118,7 @@ function title() {
 
 function level1() {
   numBalls = 3;
+  createBalls();
 
   if (timerValue < 15) {
     levelText = ``;
