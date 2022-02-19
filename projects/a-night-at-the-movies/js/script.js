@@ -118,6 +118,12 @@ function title() {
 }
 
 function level1() {
+  if (timerValue === 13) {
+    numBalls += 2;
+  }
+  if (timerValue === 12) {
+    numBalls += 1;
+  }
 
   if (timerValue < 15) {
     levelText = ``;
