@@ -68,21 +68,21 @@ function setup() {
   createCanvas(640, 480);
 
   // Access user's webcam
-    video = createCapture(VIDEO);
-    video.hide();
+  video = createCapture(VIDEO);
+  video.hide();
 
-    // Load the handpose model
-    handpose = ml5.handpose(video, {
-      flipHorizontal: true
-    }, function() {
-      console.log(`Model loaded.`);
-    });
+  // Load the handpose model
+  handpose = ml5.handpose(video, {
+    flipHorizontal: true
+  }, function() {
+    console.log(`Model loaded.`);
+  });
 
-    // Listen for predictions
-    handpose.on(`predict`, function(results) {
-      console.log(results);
-      predictions = results;
-    });
+  // Listen for predictions
+  handpose.on(`predict`, function(results) {
+    console.log(results);
+    predictions = results;
+  });
 
   // Create Timer
   push();
@@ -158,6 +158,7 @@ function createBubble01() {
     bubble.y = height;
   }
 }
+
 function createBubble02() {
   bubble02.image = bubble02Image;
   imageMode(CENTER);
@@ -172,6 +173,7 @@ function createBubble02() {
     bubble02.y = height;
   }
 }
+
 function createBubble03() {
   bubble03.image = bubble03Image;
   imageMode(CENTER);
@@ -244,6 +246,7 @@ function level1() {
     state = 'levelGameOver';
   }
 }
+
 function level2() {
   // Main Background
   imageMode(CENTER);
@@ -279,6 +282,7 @@ function level2() {
     state = 'levelGameOver';
   }
 }
+
 function level3() {
   // Main Background
   imageMode(CENTER);
@@ -348,6 +352,7 @@ function levelGameOver() {
     timerValue = 59;
   }
 }
+
 function levelVic() {
   // Main Background
   imageMode(CENTER);
@@ -427,6 +432,7 @@ function displayTimer() {
     text('Level Over', 320, 50);
   }
 }
+
 function timeIt() {
   if (timerValue > 0) {
     timerValue--;
@@ -504,9 +510,7 @@ function keyPressed() {
     state = `paused`;
   } else if ((key === `p`) && (state === `level3`)) {
     state = `paused`;
-  }
-
-  else if ((keyCode === 73) && (state === 'level1') && (tutText === ``)) {
+  } else if ((keyCode === 73) && (state === 'level1') && (tutText === ``)) {
     tutText = `[Press "B" & use your finger to pop Lanterns]`;
   } else if ((keyCode === 73) && (state === 'level1') && (tutText === `[Press "B" & use your finger to pop Blue enemies]`)) {
     tutText = ``

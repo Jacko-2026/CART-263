@@ -8,7 +8,8 @@ These issues including loading errors, camera issues, frame-rate drops, moments 
 Due to these issues, I switched my idea for my project to be a rhythm game using the project file for the “juggle garden” exercise from CART-253 and the 1965 musical drama film film “The Sound of Music” as the film based inspiration (with the idea being to use the songs from the film as the music/beats for the game).
 Thanks to another wave of errors followed by the creation of this version of the project, I gave up and returned to my original idea of a sort of Fruit Ninja inspired game based loosely on “Seven Samurai”.
 A few of the major issues I faced when making this project were as followed:
-* I could not figure out how to make the index finger instead be displayed as a pixel art based sword
-* I could not get certain .wav sounds to play despite there being to visible errors when I tested the game in browser and viewed the javascript console
-* My keyboard got destroyed (spilt water) during the process of making it, which really added to the time in making it
-Hopefully the end product is still fun to play to most people and still gives off the idea that you are a samurai either training or actively in battle.
+
+-   I could not figure out how to make the index finger instead be displayed as a pixel art based sword
+-   I could not get certain .wav sounds to play despite there being to visible errors when I tested the game in browser and viewed the javascript console
+-   My keyboard got destroyed (spilt water) during the process of making it, which really added to the time in making it
+    Hopefully the end product is still fun to play to most people and still gives off the idea that you are a samurai either training or actively in battle.
