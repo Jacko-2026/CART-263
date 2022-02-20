@@ -1,9 +1,8 @@
 /**
-Title of Project
-Author Name
+a-night-at-the-movies
+Jack Taddeo
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Train as a samurai by cutting down three different types of training dummy objects!
 */
 
 "use strict";
