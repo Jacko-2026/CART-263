@@ -31,12 +31,6 @@ let tutText = ``;
 // Sounds
 let poppingSound;
 
-function preload() {
-  // Sounds
-  soundFormats('wav');
-  poppingSound = loadSound('assets/sounds/Pop.wav');
-}
-
 function setup() {
   createCanvas(640, 480);
 
@@ -57,27 +51,30 @@ function setup() {
       predictions = results;
     });
 
-  // Our bubble
+  // Bubbles
   bubble = {
     x: random(width),
     y: height,
     size: 100,
     vx: 0,
-    vy: -2
+    vy: -2,
+    image: bubbleImage
   };
   bubble02 = {
     x: random(width),
     y: height,
     size: 75,
     vx: 0,
-    vy: -2
+    vy: -2,
+    image: bubble02Image
   };
   bubble03 = {
     x: random(width),
     y: height,
     size: 50,
     vx: 0,
-    vy: -2
+    vy: -2,
+    image: bubble03Image
   };
 
   // Create Timer
@@ -86,6 +83,18 @@ function setup() {
   textAlign(CENTER, CENTER);
   setInterval(timeIt, 1000);
   pop();
+}
+
+function preload() {
+let bubbleImage;
+
+  // Images
+  bubbleImage = loadImage('assets/images/01_Lantern.png');
+  bubble.image = bubbleImage;
+
+  // Sounds
+  soundFormats('wav');
+  poppingSound = loadSound('assets/sounds/Pop.wav');
 }
 
 function draw() {
