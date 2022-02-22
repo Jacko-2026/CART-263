@@ -20,8 +20,8 @@ let fiveSyllableLines = [
 let sevenSyllableLines = [
   `Gold leaves rustle underfoot`,
   `Scarves and sweaters everywhere`,
-  `Float down to the soft, moist ground `,
-  `Pumpkins in the air, while boots`,
+  `Float down to the soft, moist ground`,
+  `Pumpkins in the air, mossy trees`,
   `They will not come back again`
 ];
 
