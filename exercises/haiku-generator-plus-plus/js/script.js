@@ -8,17 +8,20 @@ Generates a random haiku!
 "use strict";
 
 let fiveSyllableLines = [
-  `O, to be a tree`.
-  `The cat does not know`,
-  `We are all forests`,
-  `You have done your best`,
-  `They are all gone now`
+  `Like crunchy cornflakes`,
+  `Beauty in decay`,
+  `Coolness fills the air`,
+  `Fall weather is here`,
+  `Golden butterflies`,
+  `And rest till fall ends`,
+  `A misty morning`,
+  `Crunch on autumn leaves`
 ];
 let sevenSyllableLines = [
-  `Say the things left unsaid`,
-  `Never believe the wind's lies`,
-  `The autumn stretches its legs`,
-  `Nothing can satisfy you`,
+  `Gold leaves rustle underfoot`,
+  `Scarves and sweaters everywhere`,
+  `Float down to the soft, moist ground `,
+  `Pumpkins in the air, while boots`,
   `They will not come back again`
 ];
 
