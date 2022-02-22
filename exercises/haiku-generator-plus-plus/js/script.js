@@ -22,7 +22,6 @@ let sevenSyllableLines = [
   `They will not come back again`
 ];
 
-
 let line1 = random(fiveSyllableLines);
 let line2 = random(sevenSyllableLines);
 let line3 = random(fiveSyllableLines);
@@ -38,7 +37,6 @@ line3P.innerText = line3;
 line1P.addEventListener(`click`, lineClicked);
 line2P.addEventListener(`click`, lineClicked);
 line3P.addEventListener(`click`, lineClicked);
-
 
 function lineClicked(event) {
   fadeOut(event.target, 1);
