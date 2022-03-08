@@ -3,15 +3,11 @@
 $(`.top-secret`).on(`click`, redact);
 setInterval(revelation, 500);
 
-let gaspSound;
-let markerSound;
+let gaspSound = new Audio(`assets/sounds/gasp.wav`);
+let markerSound = new Audio(`assets/sounds/marker.wav`);
+let officeSound = new Audio(`assets/sounds/office.wav`);
 
-function preload() {
-  // Sounds
-  soundFormats('wav');
-  gaspSound = loadSound('assets/sounds/gasp.wav');
-  markerSound = loadSound('assets/sounds/marker.wav');
-}
+officeSound.play();
 
 function redact(event) {
   markerSound.play();
