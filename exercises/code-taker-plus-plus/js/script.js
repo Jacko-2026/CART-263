@@ -2,16 +2,21 @@
 Code Taker
 Jack Taddeo
 
-Da Vinci?!
+Break the code Detective
 */
 
 "use strict";
+
+let music = new Audio('Columbo-Music.wav');
+music.addEventListener('loadeddata', () => {
+  let duration = music.duration;
+})
 
 $(`#solved-dialog`).dialog({
   autoOpen: false,
   buttons: {
     "I know.": function() {
-      $(this).dialog(`clsoe`);
+      $(this).dialog(`close`);
     }
   }
 });
@@ -30,7 +35,7 @@ $(`answer`).droppable({
     ui.draggable.draggable(`dissable`);
     ui.draggable.removeClass(`found`);
     // Check if they got it
-    if($(this).text() === `Theremin`) {
+    if($(this).text() === `Columbo`) {
       $(`#solved-dialog`).dialog(`open`);
     }
   }
