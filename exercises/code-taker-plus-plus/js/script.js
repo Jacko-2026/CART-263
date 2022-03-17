@@ -10,6 +10,7 @@ Break the code Detective
 let music = new Audio('assets/sounds/Columbo-Music.wav');
 let musicEnd = new Audio('assets/sounds/JustOneMoreThing.wav');
 music.play();
+music.loop = true;
 
 $(`#solved-dialog`).dialog({
   autoOpen: false,
@@ -20,7 +21,7 @@ $(`#solved-dialog`).dialog({
   }
 });
 
-$(`.secret`).one(`mouseover`, function(event) {
+$(`.secret`).one(`mouseover`, function(secret) {
   $(this).addClass(`found`, 500);
   $(this).draggable({
     helper: `clone`
@@ -28,7 +29,7 @@ $(`.secret`).one(`mouseover`, function(event) {
 });
 
 $(`.answer`).droppable({
-  drop: function(event, ui) {
+  drop: function(secret, ui) {
     let letter = ui.draggable.text();
     $(this).append(letter);
     ui.draggable.draggable(`dissable`);
