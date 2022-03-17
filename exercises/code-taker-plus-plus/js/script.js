@@ -7,10 +7,9 @@ Break the code Detective
 
 "use strict";
 
-let music = new Audio('Columbo-Music.wav');
-music.addEventListener('loadeddata', () => {
-  let duration = music.duration;
-})
+let music = new Audio('assets/sounds/Columbo-Music.wav');
+let musicEnd = new Audio('assets/sounds/JustOneMoreThing.wav');
+music.play();
 
 $(`#solved-dialog`).dialog({
   autoOpen: false,
@@ -21,14 +20,14 @@ $(`#solved-dialog`).dialog({
   }
 });
 
-$(`.event`).one(`mouseover`, function(event) {
+$(`.secret`).one(`mouseover`, function(event) {
   $(this).addClass(`found`, 500);
   $(this).draggable({
     helper: `clone`
   });
 });
 
-$(`answer`).droppable({
+$(`.answer`).droppable({
   drop: function(event, ui) {
     let letter = ui.draggable.text();
     $(this).append(letter);
@@ -37,6 +36,7 @@ $(`answer`).droppable({
     // Check if they got it
     if($(this).text() === `Columbo`) {
       $(`#solved-dialog`).dialog(`open`);
+      musicEnd.play();
     }
   }
 });
