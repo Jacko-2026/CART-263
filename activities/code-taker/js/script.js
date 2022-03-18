@@ -11,20 +11,20 @@ $(`#solved-dialog`).dialog({
   autoOpen: false,
   buttons: {
     "I know.": function() {
-      $(this).dialog(`clsoe`);
+      $(this).dialog(`close`);
     }
   }
 });
 
-$(`.event`).one(`mouseover`, function(event) {
+$(`.secret`).one(`mouseover`, function(secret) {
   $(this).addClass(`found`, 500);
   $(this).draggable({
     helper: `clone`
   });
 });
 
-$(`answer`).droppable({
-  drop: function(event, ui) {
+$(`#answer`).droppable({
+  drop: function(secret, ui) {
     let letter = ui.draggable.text();
     $(this).append(letter);
     ui.draggable.draggable(`dissable`);

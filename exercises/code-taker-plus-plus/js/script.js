@@ -28,7 +28,7 @@ $(`.secret`).one(`mouseover`, function(secret) {
   });
 });
 
-$(`.answer`).droppable({
+$(`#answer`).droppable({
   drop: function(secret, ui) {
     let letter = ui.draggable.text();
     $(this).append(letter);
