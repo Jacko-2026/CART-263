@@ -32,7 +32,7 @@ $(`#answer`).droppable({
   drop: function(secret, ui) {
     let letter = ui.draggable.text();
     $(this).append(letter);
-    ui.draggable.draggable(`dissable`);
+    ui.draggable.draggable(`disable`);
     ui.draggable.removeClass(`found`);
     // Check if they got it
     if($(this).text() === `Columbo`) {
