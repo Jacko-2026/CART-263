@@ -101,6 +101,14 @@ let keyPressed = (e) => {
             textbox.innerHTML += "&nbsp;";
         }
     }
+
+    textbox.innerText += e.key; // Add the current character to the textbox
+    if (e.key === 32) { // If it's enter
+      let text = textbox.innerText; // Get the text
+      textbox.innerText = ``; // Empty the textbox
+      let line2 = document.getElementById(`line-2`); // Get the second message bubble
+      line2.innerText = text; // Set the text that was typed in it
+    }
 }
 
 let keyReleased = (e) => {
@@ -132,14 +140,6 @@ let keyReleased = (e) => {
         else if (kc == 78) { kd[24].classList.remove("key__down"); }
         else if (kc == 77) { kd[25].classList.remove("key__down"); }
         else if (kc == 32) { kd[26].classList.remove("key__down"); }
-
-        textbox.innerText += e.key; // Add the current character to the textbox
-        if (e.key === 32) { // If it's enter
-          let text = textbox.innerText; // Get the text
-          textbox.innerText = ``; // Empty the textbox
-          let line2 = document.getElementById(`line-2`); // Get the second message bubble
-          line2.innerText = text; // Set the text that was typed in it
-        }
 }
 
 window.addEventListener("keydown", keyPressed);
