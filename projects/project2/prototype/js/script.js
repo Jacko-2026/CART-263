@@ -15,16 +15,12 @@ let dialogue = [
 ];
 
 let line1 = random(dialogue);
-let line2 = random(dialogue);
 
 let line1P = document.getElementById(`line-1`);
-let line2P = document.getElementById(`line-2`);
 
 line1P.innerText = line1;
-line2P.innerText = line1;
 
 line1P.addEventListener(`click`, lineClicked);
-line2P.addEventListener(`click`, lineClicked);
 
 function lineClicked(event) {
   fadeOut(event.target, 1);
@@ -58,9 +54,6 @@ function setNewLine(element) {
   if (element === line1P) {
     element.innerText =  random(dialogue);
   }
-  else if (element === line2P) {
-    element.innerText = random (dialogue);
-  }
 }
 
 function random(array) {
@@ -73,6 +66,7 @@ const kd = document.querySelectorAll(".key");
 const textbox = document.querySelector(".textbox");
 
 let keyPressed = (e) => {
+
   let kc = e.keyCode;
 
     if ( (kc >= 65 && kc <= 90) || kc == 32) {
@@ -138,8 +132,15 @@ let keyReleased = (e) => {
         else if (kc == 78) { kd[24].classList.remove("key__down"); }
         else if (kc == 77) { kd[25].classList.remove("key__down"); }
         else if (kc == 32) { kd[26].classList.remove("key__down"); }
-}
 
+        textbox.innerText += e.key; // Add the current character to the textbox
+        if (e.key === 32) { // If it's enter
+          let text = textbox.innerText; // Get the text
+          textbox.innerText = ``; // Empty the textbox
+          let line2 = document.getElementById(`line-2`); // Get the second message bubble
+          line2.innerText = text; // Set the text that was typed in it
+        }
+}
 
 window.addEventListener("keydown", keyPressed);
 window.addEventListener("keyup", keyReleased);
