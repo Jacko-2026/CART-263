@@ -104,8 +104,8 @@ let keyPressed = (e) => {
 
     textbox.innerText += e.key; // Add the current character to the textbox
     if (kc === 13) { // If it's enter
-      let text = textbox.innerText; // Get the text
-      textbox.innerText = ``; // Empty the textbox
+      let text = textbox.value; // Get the text
+      textbox.value = ``; // Empty the textbox
       let line2 = document.getElementById(`line-2`); // Get the second message bubble
       line2.innerText = text; // Set the text that was typed in it
     }
