@@ -14,7 +14,14 @@ let dialogue = [
   `Give me 300$.`
 ];
 
+let customerResponse = [
+  `What?`,
+  `That's not right.`,
+  `Secret Tunnel!`
+];
+
 let line1 = random(dialogue);
+let line2 = document.getElementById(`line-2`);
 
 let line1P = document.getElementById(`line-1`);
 
@@ -53,6 +60,9 @@ function fadeIn(element, opacity) {
 function setNewLine(element) {
   if (element === line1P) {
     element.innerText =  random(dialogue);
+  }
+  else if (element === line2) {
+    element.innerText = ``;
   }
 }
 
@@ -102,14 +112,23 @@ let keyPressed = (e) => {
         }
     }
 
-    textbox.innerText += e.key;
     if (kc === 13) {
       let text = textbox.value;
       textbox.value = ``;
-      let line2 = document.getElementById(`line-2`);
       line2.innerText = text;
+      line2.addEventListener(`click`, lineClicked);
+    }
+    if ((kc === 13) && (line2 !== line1)) {
+      line1 = random(customerResponse);
     }
 }
+
+document.addEventListener('keypress', function (e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        return false;
+    }
+});
 
 let keyReleased = (e) => {
    let kc = e.keyCode;
