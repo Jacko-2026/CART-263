@@ -118,8 +118,8 @@ let keyPressed = (e) => {
       line2.innerText = text;
       line2.addEventListener(`click`, lineClicked);
     }
-    if ((kc === 13) && (line2 !== line1)) {
-      line1 = random(customerResponse);
+    if ((kc === 13) && (line2.innerText !== line1P.innerText)) {
+      line1P.innerText = random(customerResponse);
     }
 }
 
