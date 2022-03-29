@@ -1,9 +1,8 @@
 /**
-Title of Project
-Author Name
+Pawn Shop Sim
+Jack Taddeo
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+The aim of the game is to buy, sell, and trade items that come to your shop by interacting with the customers.
 */
 
 "use strict";
@@ -17,7 +16,13 @@ let dialogue = [
 let customerResponse = [
   `What?`,
   `That's not right.`,
-  `Secret Tunnel!`
+  `Secret Tunnel! (Hidden Easter Egg)`
+];
+
+let customerResponse02 = [
+  `You have to either buy or ignore the item.`,
+  `What are you, deaf?!`,
+  `I'm asking for credits, what do you not understand?`
 ];
 
 let line1 = random(dialogue);
@@ -112,14 +117,22 @@ let keyPressed = (e) => {
         }
     }
 
+let text = textbox.value;
     if (kc === 13) {
-      let text = textbox.value;
       textbox.value = ``;
       line2.innerText = text;
       line2.addEventListener(`click`, lineClicked);
     }
     if ((kc === 13) && (line2.innerText !== line1P.innerText)) {
       line1P.innerText = random(customerResponse);
+    }
+    let result = text.includes(`what`);
+    if ((kc === 13) && (result === true)) {
+      line1P.innerText = random(customerResponse02);
+    }
+    let secretSound = new Audio(`assets/sounds/secret.wav`);
+    if (line1P.innerText === `Secret Tunnel! (Hidden Easter Egg)`) {
+      secretSound.play();
     }
 }
 
