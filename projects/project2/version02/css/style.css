@@ -83,7 +83,6 @@ body .wrapper .speechbubble p:before {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
-
 .container {
   display: flex;
   justify-content: center;
@@ -94,7 +93,6 @@ body .wrapper .speechbubble p:before {
 .container__content {
   width: 60%;
 }
-
 .textbox {
   width: 100%;
   resize: none;
@@ -108,41 +106,18 @@ body .wrapper .speechbubble p:before {
   margin: 50px 0;
 }
 
-.keyboard {
-  padding: 25px;
-  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
-  box-shadow: 8px 8px 15px #D9E3EC;
-  border-radius: 12px;
-  min-width: 750px;
-  max-width: 1000px;
-}
-.keyboard__keys {
-  display: flex;
-  justify-content: center;
-}
 
-.key {
+#ui {
+  background-color: #0;
+  width: 800px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-  min-width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
-  box-shadow: 5px 5px 15px #D9E3EC;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 50px;
+  justify-content: space-evenly;
 }
-.key__letter {
-  background: -webkit-linear-gradient(245deg, #1E71F5, #3CDEE7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.key__down {
-  color: linear-gradient(45deg, #1E71F5, #3CDEE7);
-  background: linear-gradient(145deg, #E9F2FB, #F2F7FB);
-  box-shadow: inset 5px 5px 5px #D9E3EC;
-}
-.key__space {
-  width: 60%;
+#client {
+  width: 200px;
+  height: 200px;
+  background-color: red;
 }
