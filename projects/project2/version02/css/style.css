@@ -85,7 +85,6 @@ body .wrapper .speechbubble p:before {
 }
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
@@ -119,5 +118,14 @@ body .wrapper .speechbubble p:before {
 #client {
   width: 200px;
   height: 200px;
-  background-color: red;
+  background-color: black;
+}
+#item {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content:space-between;
+  flex-direction: column;
+  gap: 10px;
+  background-color: black;
 }

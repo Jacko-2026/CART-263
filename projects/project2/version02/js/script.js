@@ -22,8 +22,7 @@ Because every play has a cast.`,
 He just needed a little space.`,
   `Why don’t scientists trust atoms?
 Because they make up everything.`
-]
-
+];
 let customerResponse = [
   `What?`,
   `That's not right.`,
