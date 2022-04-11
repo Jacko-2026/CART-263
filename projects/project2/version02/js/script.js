@@ -13,9 +13,11 @@ let dialogue = [
   `Give me 300$.`
 ];
 
+let clientImage = document.getElementById(`client-image`);
 let clientImages = [
-  `Item-01.png`
+  `assets/images/Item-01.png`
 ];
+clientImage.src = random(clientImages);
 
 let customerJoke = [
   `Whats the best thing about the Swiss?
