@@ -13,6 +13,10 @@ let dialogue = [
   `Give me 300$.`
 ];
 
+let clientImages = [
+  `Item-01.png`
+];
+
 let customerJoke = [
   `Whats the best thing about the Swiss?
   Idk, but their flag is a big plus.`,
@@ -54,7 +58,6 @@ function random(array) {
   let index = Math.floor(Math.random() * array.length);
   return array[index];
 }
-
 
 const kd = document.querySelectorAll(".key");
 const textbox = document.querySelector(".textbox");
