@@ -90,17 +90,21 @@ function random(array) {
   return array[index];
 }
 
+let amount = 1000;
+let amountP = document.getElementById(`amount`);
+amountP.innerText = amount;
+
 let price;
 let priceP = document.getElementById(`price`);
 priceP.innerText = price;
 if (line1 === `Give me 100$.`) {
-  priceP.innerText = `100$`
+  priceP.innerText = 100;
 }
 if (line1 === `Give me 200$.`) {
-  priceP.innerText = `200$`
+  priceP.innerText = 200;
 }
 if (line1 === `Give me 300$.`) {
-  priceP.innerText = `300$`
+  priceP.innerText = 300;
 }
 
 const kd = document.querySelectorAll(".key");
@@ -122,18 +126,23 @@ let keyPressed = (e) => {
       secretSound.play();
     }
     // Customer Response / Costomer & User Interaction
-    let result1 = text.includes(`huh`);
-    if ((kc === 13) && (result1 === true)) {
+    let huh = text.includes(`huh`);
+    if ((kc === 13) && (huh === true)) {
       line1P.innerText = random(customerResponse02);
     }
-    let result2 = text.includes(`what are credits`);
-    if ((kc === 13) && (result2 === true)) {
+    let what = text.includes(`what are credits`);
+    if ((kc === 13) && (what === true)) {
       line1P.innerText = random(customerResponse03);
     }
-    let result3 = text.includes(`tell me a joke`);
-    if ((kc === 13) && (result3 === true)) {
+    let joke = text.includes(`tell me a joke`);
+    if ((kc === 13) && (joke === true)) {
       line1P.innerText = random(customerJoke);
       jokeSound.play();
+    }
+    let next = text.includes(`next customer`);
+    if ((kc === 13) && (joke === true)) {
+      itemImage.src = random(itemImages);
+      clientImage.src = random(clientImages);
     }
     let result4 = text.includes(`what is this`);
     if ((kc === 13) && (result4 === true)) {
