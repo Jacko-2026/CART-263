@@ -117,29 +117,28 @@ let keyPressed = (e) => {
     if (kc === 13) {
       textbox.value = ``; // Clear textbox
       line2.innerText = text; // Move the text into the bubble
-
       let secretSound = new Audio(`assets/sounds/secret.wav`);
       let jokeSound = new Audio(`assets/sounds/joke.wav`);
       if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
         secretSound.play();
       }
       // Customer Response / Costomer & User Interaction
-      if (text.includes(`huh`)) {
+      else if (text.includes(`huh`)) {
         line1P.innerText = random(customerResponse02);
       }
-      if (text.includes(`what are credits`)) {
+      else if (text.includes(`what are credits`)) {
         line1P.innerText = random(customerResponse03);
       }
-      if (text.includes(`tell me a joke`)) {
+      else if (text.includes(`tell me a joke`)) {
         line1P.innerText = random(customerJoke);
         jokeSound.play();
       }
-      if (text.includes(`next customer`)) {
+      else if (text.includes(`next customer`)) {
         itemImage.src = random(itemImages);
         clientImage.src = random(clientImages);
         line1P.innerText = random(dialogue);
       }
-      if (text.includes(`what is this`)) {
+      else if (text.includes(`what is this`)) {
         console.log(itemImage.src)
         if (itemImage.src.includes (`Item-01`)) {
           line1P.innerText = `It's a Vermit Worm.`
@@ -178,7 +177,7 @@ let keyPressed = (e) => {
           line1P.innerText = `It's a Laser Crystal.`
         }
       }
-      if (text.includes(`stolen`)) {
+      else if (text.includes(`stolen`)) {
         let mandoStolen = clientImage.src.includes(`Mando`);
         if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
           line1P.innerText = `Yes`
@@ -196,6 +195,9 @@ let keyPressed = (e) => {
         let organStolen = itemImage.src.includes(`Item-10`);
         if ((itemImage.src.includes (`Item-10`)) && (ghostStolen === true)) {
           line1P.innerText = `Yes`
+        }
+        else {
+          line1P.innerText = `No`
         }
       }
     else {
