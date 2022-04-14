@@ -140,9 +140,10 @@ let keyPressed = (e) => {
       jokeSound.play();
     }
     let next = text.includes(`next customer`);
-    if ((kc === 13) && (joke === true)) {
+    if ((kc === 13) && (next === true)) {
       itemImage.src = random(itemImages);
       clientImage.src = random(clientImages);
+      line1P.innerText = random(dialogue);
     }
     let result4 = text.includes(`what is this`);
     if ((kc === 13) && (result4 === true)) {
