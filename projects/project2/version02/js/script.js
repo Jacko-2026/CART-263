@@ -113,99 +113,95 @@ const textbox = document.querySelector(".textbox");
 let keyPressed = (e) => {
   let kc = e.keyCode;
   let text = textbox.value;
+    // Basic UI update based on enter
     if (kc === 13) {
-      textbox.value = ``;
-      line2.innerText = text;
+      textbox.value = ``; // Clear textbox
+      line2.innerText = text; // Move the text into the bubble
+
+      let secretSound = new Audio(`assets/sounds/secret.wav`);
+      let jokeSound = new Audio(`assets/sounds/joke.wav`);
+      if (line1P.innerText === `Secret Tunnel! (Hidden Easter Egg)`) {
+        secretSound.play();
+      }
+      // Customer Response / Costomer & User Interaction
+      if (text.includes(`huh`)) {
+        line1P.innerText = random(customerResponse02);
+      }
+      if (text.includes(`what are credits`)) {
+        line1P.innerText = random(customerResponse03);
+      }
+      if (text.includes(`tell me a joke`)) {
+        line1P.innerText = random(customerJoke);
+        jokeSound.play();
+      }
+      if (text.includes(`next customer`)) {
+        itemImage.src = random(itemImages);
+        clientImage.src = random(clientImages);
+        line1P.innerText = random(dialogue);
+      }
+      if (text.includes(`what is this`)) {
+        console.log(itemImage.src)
+        if (itemImage.src.includes (`Item-01`)) {
+          line1P.innerText = `It's a Vermit Worm.`
+        }
+        if (itemImage.src.includes(`Item-02`)) {
+          line1P.innerText = `It's a Ugurt Flower.`
+        }
+        if (itemImage.src.includes(`Item-03`)) {
+          line1P.innerText = `It's a Gem Berry.`
+        }
+        if (itemImage.src.includes(`Item-04`)) {
+          line1P.innerText = `It's a Folmar in a Jar.`
+        }
+        if (itemImage.src.includes(`Item-05`)) {
+          line1P.innerText = `It's a Ceremonial Vase.`
+        }
+        if (itemImage.src.includes(`Item-06`)) {
+          line1P.innerText = `It's a Beskar Steel Ingot.`
+        }
+        if (itemImage.src.includes(`Item-07`)) {
+          line1P.innerText = `It's a Pound of Spice.`
+        }
+        if (itemImage.src.includes(`Item-08`)) {
+          line1P.innerText = `It's a Drogo Scale.`
+        }
+        if (itemImage.src.includes(`Item-09`)) {
+          line1P.innerText = `It's a Ghost Scripture.`
+        }
+        if (itemImage.src.includes(`Item-10`)) {
+          line1P.innerText = `It's a Unknown Organ.`
+        }
+        if (itemImage.src.includes(`Item-11`)) {
+          line1P.innerText = `It's a Uranium Rod.`
+        }
+        if (itemImage.src.includes(`Item-12`)) {
+          line1P.innerText = `It's a Laser Crystal.`
+        }
+      }
+      if (text.includes(`stolen`)) {
+        let mandoStolen = clientImage.src.includes(`Mando`);
+        if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
+          line1P.innerText = `Yes`
+        }
+        else if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === true)) {
+          line1P.innerText = `No`
+        }
+        let ghostStolen = clientImage.src.includes(`Ghost`);
+        if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === false)) {
+          line1P.innerText = `Yes`
+        }
+        else if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === true)) {
+          line1P.innerText = `No`
+        }
+        let organStolen = itemImage.src.includes(`Item-10`);
+        if ((itemImage.src.includes (`Item-10`)) && (ghostStolen === true)) {
+          line1P.innerText = `Yes`
+        }
+      }
+    else {
+      line1p.innerText = random(customerResponse);
     }
-    if ((kc === 13) && (line1 = random(dialogue)) && (line2.innerText !== line1P.innerText)) {
-      line1P.innerText = random(customerResponse);
-    }
-    let secretSound = new Audio(`assets/sounds/secret.wav`);
-    let jokeSound = new Audio(`assets/sounds/joke.wav`);
-    if (line1P.innerText === `Secret Tunnel! (Hidden Easter Egg)`) {
-      secretSound.play();
-    }
-    // Customer Response / Costomer & User Interaction
-    let huh = text.includes(`huh`);
-    if ((kc === 13) && (huh === true)) {
-      line1P.innerText = random(customerResponse02);
-    }
-    let what = text.includes(`what are credits`);
-    if ((kc === 13) && (what === true)) {
-      line1P.innerText = random(customerResponse03);
-    }
-    let joke = text.includes(`tell me a joke`);
-    if ((kc === 13) && (joke === true)) {
-      line1P.innerText = random(customerJoke);
-      jokeSound.play();
-    }
-    let next = text.includes(`next customer`);
-    if ((kc === 13) && (next === true)) {
-      itemImage.src = random(itemImages);
-      clientImage.src = random(clientImages);
-      line1P.innerText = random(dialogue);
-    }
-    let result4 = text.includes(`what is this`);
-    if ((kc === 13) && (result4 === true)) {
-      console.log(itemImage.src)
-      if (itemImage.src.includes (`Item-01`)) {
-        line1P.innerText = `It's a Vermit Worm.`
-      }
-      if (itemImage.src.includes(`Item-02`)) {
-        line1P.innerText = `It's a Ugurt Flower.`
-      }
-      if (itemImage.src.includes(`Item-03`)) {
-        line1P.innerText = `It's a Gem Berry.`
-      }
-      if (itemImage.src.includes(`Item-04`)) {
-        line1P.innerText = `It's a Folmar in a Jar.`
-      }
-      if (itemImage.src.includes(`Item-05`)) {
-        line1P.innerText = `It's a Ceremonial Vase.`
-      }
-      if (itemImage.src.includes(`Item-06`)) {
-        line1P.innerText = `It's a Beskar Steel Ingot.`
-      }
-      if (itemImage.src.includes(`Item-07`)) {
-        line1P.innerText = `It's a Pound of Spice.`
-      }
-      if (itemImage.src.includes(`Item-08`)) {
-        line1P.innerText = `It's a Drogo Scale.`
-      }
-      if (itemImage.src.includes(`Item-09`)) {
-        line1P.innerText = `It's a Ghost Scripture.`
-      }
-      if (itemImage.src.includes(`Item-10`)) {
-        line1P.innerText = `It's a Unknown Organ.`
-      }
-      if (itemImage.src.includes(`Item-11`)) {
-        line1P.innerText = `It's a Uranium Rod.`
-      }
-      if (itemImage.src.includes(`Item-12`)) {
-        line1P.innerText = `It's a Laser Crystal.`
-      }
-    }
-    let result5 = text.includes(`stolen`);
-    if ((kc === 13) && (result5 === true)) {
-      let mandoStolen = clientImage.src.includes(`Mando`);
-      if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
-        line1P.innerText = `Yes`
-      }
-      else if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === true)) {
-        line1P.innerText = `No`
-      }
-      let ghostStolen = clientImage.src.includes(`Ghost`);
-      if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === false)) {
-        line1P.innerText = `Yes`
-      }
-      else if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === true)) {
-        line1P.innerText = `No`
-      }
-      let organStolen = itemImage.src.includes(`Item-10`);
-      if ((itemImage.src.includes (`Item-10`)) && (ghostStolen === true)) {
-        line1P.innerText = `Yes`
-      }
-    }
+  }
 }
 
 document.addEventListener('keypress', function (e) {
