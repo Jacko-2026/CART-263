@@ -66,7 +66,7 @@ let customerResponse = [
   `Huh?`,
   `Isnt this a pawn shop?`,
   `I want to barter.`,
-  `Secret Tunnel! (Hidden Easter Egg)`
+  `Secret Tunnel! [Hidden Easter Egg]`
 ];
 let customerResponse02 = [
   `Are you gonna buy this or not? I need the credits.`,
@@ -120,7 +120,7 @@ let keyPressed = (e) => {
 
       let secretSound = new Audio(`assets/sounds/secret.wav`);
       let jokeSound = new Audio(`assets/sounds/joke.wav`);
-      if (line1P.innerText === `Secret Tunnel! (Hidden Easter Egg)`) {
+      if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
         secretSound.play();
       }
       // Customer Response / Costomer & User Interaction
@@ -199,7 +199,7 @@ let keyPressed = (e) => {
         }
       }
     else {
-      line1p.innerText = random(customerResponse);
+      line1P.innerText = random(customerResponse);
     }
   }
 }
