@@ -119,11 +119,8 @@ let keyPressed = (e) => {
       line2.innerText = text; // Move the text into the bubble
       let secretSound = new Audio(`assets/sounds/secret.wav`);
       let jokeSound = new Audio(`assets/sounds/joke.wav`);
-      if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
-        secretSound.play();
-      }
       // Customer Response / Costomer & User Interaction
-      else if (text.includes(`huh`)) {
+      if (text.includes(`huh`)) {
         line1P.innerText = random(customerResponse02);
       }
       else if (text.includes(`what are credits`)) {
@@ -201,7 +198,12 @@ let keyPressed = (e) => {
         }
       }
     else {
+      secretSound.pause();
       line1P.innerText = random(customerResponse);
+    }
+    if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
+      secretSound.pause();
+      secretSound.play();
     }
   }
 }
