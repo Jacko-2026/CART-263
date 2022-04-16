@@ -16,7 +16,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #9fa2a7;
+  color: #121212;
 }
 body .wrapper {
   max-width: 450px;
@@ -29,7 +29,7 @@ body .wrapper h1 {
   font-size: 1.5em;
 }
 body .wrapper .speechbubble {
-  background-color: #F2F7FB;
+  background-color: #202020;
   color: #9fa2a7;
   font-size: 0.8em;
   line-height: 1.75;
@@ -49,7 +49,7 @@ body .wrapper .speechbubble:nth-child(2n):after {
   left: 20px;
   border-width: 30px 0 0 30px;
   border-style: solid;
-  border-color: #E9F2FB transparent;
+  border-color: #313131 transparent;
   display: block;
   width: 0;
 }
@@ -93,10 +93,11 @@ body .wrapper .speechbubble p:before {
   width: 60%;
 }
 .textbox {
+  color: #9fa2a7;
   width: 100%;
   resize: none;
-  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
-  box-shadow: inset 8px 8px 15px #D9E3EC;
+  background: linear-gradient(145deg, #202020, #181818 );
+  box-shadow: inset 8px 8px 15px #000000;
   border-radius: 12px;
   border: none;
   overflow: auto;
@@ -118,7 +119,7 @@ body .wrapper .speechbubble p:before {
 #client {
   width: 200px;
   height: 200px;
-  background-color: black;
+  background-color: #181818;
 }
 #item {
   width: 200px;
@@ -127,5 +128,5 @@ body .wrapper .speechbubble p:before {
   justify-content:space-between;
   flex-direction: column;
   gap: 10px;
-  background-color: black;
+  background-color: #181818;
 }
