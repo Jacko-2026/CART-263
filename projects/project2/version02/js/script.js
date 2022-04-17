@@ -7,6 +7,9 @@ The aim of the game is to buy, sell, and trade items that come to your shop by i
 
 "use strict";
 
+let secretSound = new Audio(`assets/sounds/secret.wav`);
+let jokeSound = new Audio(`assets/sounds/joke.wav`);
+
 let clientImage = document.getElementById(`client-image`);
 let clientImages = [
   `assets/images/clients/Tadloanian-01.png`,
@@ -78,6 +81,84 @@ let customerResponse03 = [
   `You dont trade in credits? I thought it was the galactic currency.`,
   `How do you not know what credits are?`
 ];
+let gufResponse = [
+  `How do you not know?`,
+  `We are law and order in this galaxy.`,
+  `We are what remains of the Rebels, I actually faught during the Seven Suns.`,
+  `We are the law, so if you see an illegal activity, report it immediately.`
+];
+let organResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Hubboo.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's an inflated organ from a Screwku.`
+];
+let uraniumResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Kuka.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's an uranium rod, typically you would use it for powering an older ship.`
+];
+let laserResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Nahbow.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a laser crystal, typically you would use it for making a laser sword or rifle.`
+];
+let ghostResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Krok.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a ghost scripture, it's used during ceremonies.`
+];
+let drogoResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Drapture.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a Drogo scale, it's used as a aphrodisiac and in a couple tribal medicines.`
+];
+let spiceResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Froop.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a pound of spice, it's a drug produced in several galaxies that gives you a wormy high.`
+];
+let beskarResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Mandor.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a Beskar ingot, it's exclusively used by Mandolorians to make armour.`
+];
+let vaseResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Vimur.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a ceremonial vase, it's used in funerals across the known system.`
+];
+let folmarResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Giguk.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a Folmar in a jar, it's served as a delicacy on some planets.`
+];
+let gemResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Tripput.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's a gem berry, it's given as a gift in the Stardew system.`
+];
+let flowerResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Ugurt.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's an Ugurt flower, it's served at weddings despite strangling harvesters.`
+];
+let wormResponse = [
+  `I don't know, I just found it somewhere.`,
+  `I bought it from a Java while I was at planet Jupo.`,
+  `I stripped it from someone who tried to kill me the other day.`,
+  `It's an Vermit worm, it's the traditional dish of the Tadloanians mafiaoso gang.`
+];
 
 let line1 = random(dialogue);
 let line2 = document.getElementById(`line-2`);
@@ -90,13 +171,12 @@ function random(array) {
   return array[index];
 }
 
-let amount = 1000;
+let amount = 5000;
 let amountP = document.getElementById(`amount`);
 amountP.innerText = amount;
 
 let price;
 let priceP = document.getElementById(`price`);
-priceP.innerText = price;
 if (line1 === `Give me 100$.`) {
   priceP.innerText = 100;
 }
@@ -117,11 +197,45 @@ let keyPressed = (e) => {
     if (kc === 13) {
       textbox.value = ``; // Clear textbox
       line2.innerText = text; // Move the text into the bubble
-      let secretSound = new Audio(`assets/sounds/secret.wav`);
-      let jokeSound = new Audio(`assets/sounds/joke.wav`);
       // Customer Response / Costomer & User Interaction
       if (text.includes(`huh`)) {
         line1P.innerText = random(customerResponse02);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-01`))) {
+        line1P.innerText = random(wormResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-02`))) {
+        line1P.innerText = random(flowerResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-03`))) {
+        line1P.innerText = random(gemResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-04`))) {
+        line1P.innerText = random(folmarResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-05`))) {
+        line1P.innerText = random(vaseResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-06`))) {
+        line1P.innerText = random(beskarResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-07`))) {
+        line1P.innerText = random(spiceResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-08`))) {
+        line1P.innerText = random(drogoResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-09`))) {
+        line1P.innerText = random(ghostResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-10`))) {
+        line1P.innerText = random(organResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-11`))) {
+        line1P.innerText = random(uraniumResponse);
+      }
+      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-12`))) {
+        line1P.innerText = random(laserResponse);
       }
       else if (text.includes(`what are credits`)) {
         line1P.innerText = random(customerResponse03);
@@ -134,6 +248,10 @@ let keyPressed = (e) => {
         itemImage.src = random(itemImages);
         clientImage.src = random(clientImages);
         line1P.innerText = random(dialogue);
+      }
+      else if (text.includes(`buy`)) {
+        line1P.innerText = `You got a deal.`;
+        amountP.innerText -= priceP.innerText;
       }
       else if (text.includes(`what is this`)) {
         console.log(itemImage.src)
@@ -177,33 +295,78 @@ let keyPressed = (e) => {
       else if (text.includes(`stolen`)) {
         let mandoStolen = clientImage.src.includes(`Mando`);
         if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
-          line1P.innerText = `Yes`
+          line1P.innerText = `Yes`;
+          priceP.innerText -= 50;
         }
         else if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === true)) {
           line1P.innerText = `No`
         }
         let ghostStolen = clientImage.src.includes(`Ghost`);
         if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === false)) {
-          line1P.innerText = `Yes`
+          line1P.innerText = `Yes`;
+          priceP.innerText -= 50;
         }
         else if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === true)) {
           line1P.innerText = `No`
         }
         let organStolen = itemImage.src.includes(`Item-10`);
-        if ((itemImage.src.includes (`Item-10`)) && (ghostStolen === true)) {
-          line1P.innerText = `Yes`
+        if ((itemImage.src.includes (`Item-10`)) && (organStolen === true)) {
+          line1P.innerText = `Yes`;
+          priceP.innerText -= 50;
         }
         else {
           line1P.innerText = `No`
         }
       }
+      else if (text.includes(`who`)) {
+        let mandoWho = clientImage.src.includes(`Mando`);
+        if (mandoWho = true) {
+          line1P.innerText = `I'm a Manlorian.`;
+        }
+        let ghostWho = clientImage.src.includes(`Ghost`);
+        if (ghostWho = true) {
+          line1P.innerText = `I'm a Ghost.`;
+        }
+        let drogoWho = clientImage.src.includes(`Drogo`);
+        if (drogoWho = true) {
+          line1P.innerText = `I'm a Drogo.`;
+        }
+        let javaWho = clientImage.src.includes(`Java`);
+        if (javaWho = true) {
+          line1P.innerText = `I'm a Java.`;
+        }
+        let gufWho = clientImage.src.includes(`GUF`);
+        if (gufWho = true) {
+          line1P.innerText = `I'm a Galactic Utopia Federation Officer.`;
+        }
+        let androidWho = clientImage.src.includes(`Android`);
+        if (androidWho = true) {
+          line1P.innerText = `I'm an Android.`;
+        }
+        let tadloanianWho = clientImage.src.includes(`Tadloanian`);
+        if (tadloanianWho = true) {
+          line1P.innerText = `I'm a Tadloanian.`;
+        }
+      }
+    else if ((text.includes(`Galactic Utopia Federation`)) && (clientImage.src.includes(`GUF`))) {
+      line1P.innerText = random(gufResponse);
+    }
+    else if ((text.includes(`GUF`)) && (clientImage.src.includes(`GUF`))) {
+      line1P.innerText = random(gufResponse);
+    }
+    else if ((text.includes(`Seven Suns war`)) && (clientImage.src.includes(`GUF`))) {
+      line1P.innerText = `It was war in which the Rebels and Aero Alliance fought for control of the universe, named after the destruction of Winturb and Poipo and their shared seven suns`;
+    }
     else {
-      secretSound.pause();
       line1P.innerText = random(customerResponse);
     }
     if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
-      secretSound.pause();
-      secretSound.play();
+       // secretSound.pause(); // May not need
+       secretSound.currentTime = 0; // Set to the start
+       secretSound.play(); // Play it
+    }
+    else {
+      secretSound.pause(); // Stop the sound if it's not the secret tunnel message
     }
   }
 }
