@@ -3,12 +3,29 @@ Pawn Shop Sim
 Jack Taddeo
 
 The aim of the game is to buy, sell, and trade items that come to your shop by interacting with the customers.
+In this build of the game, only the ability to buy and communicate with the customer is available.
+There is an additional companion guide that gives loose bits of story and client information attached to this project.
+Additionally, there is a mock/fake trailer YouTube link in the readme file to show the original intent and possible future for this game.
 */
 
 "use strict";
 
 let secretSound = new Audio(`assets/sounds/secret.wav`);
 let jokeSound = new Audio(`assets/sounds/joke.wav`);
+let mainMusic = new Audio(`assets/sounds/mainMusic.wav`);
+let moneyMusic = new Audio(`assets/sounds/moneyMusic.wav`);
+let ribsMusic = new Audio(`assets/sounds/ribsMusic.wav`);
+
+if (typeof mainMusic.loop == 'boolean') {
+  mainMusic.loop = true;
+}
+else {
+    mainMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+  }, false);
+}
+mainMusic.play();
 
 let clientImage = document.getElementById(`client-image`);
 let clientImages = [
@@ -159,6 +176,21 @@ let wormResponse = [
   `I stripped it from someone who tried to kill me the other day.`,
   `It's an Vermit worm, it's the traditional dish of the Tadloanians mafiaoso gang.`
 ];
+// Detetect if the item has been bought already
+let boughtItem = 0;
+// Count for item inventory (selling)
+let wormCount = 0;
+let flowerCount = 0;
+let gemCount = 0;
+let folmarCount = 0;
+let vaseCount = 0;
+let beskarCount = 0;
+let spiceCount = 0;
+let drogoCount = 0;
+let ghostCount = 0;
+let organCount = 0;
+let uraniumCount = 0;
+let laserCount = 0;
 
 let line1 = random(dialogue);
 let line2 = document.getElementById(`line-2`);
@@ -201,6 +233,7 @@ let keyPressed = (e) => {
       if (text.includes(`huh`)) {
         line1P.innerText = random(customerResponse02);
       }
+      // Identifying items
       else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-01`))) {
         line1P.innerText = random(wormResponse);
       }
@@ -237,23 +270,80 @@ let keyPressed = (e) => {
       else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-12`))) {
         line1P.innerText = random(laserResponse);
       }
+      // What are credits
       else if (text.includes(`what are credits`)) {
         line1P.innerText = random(customerResponse03);
       }
+      else if (text.includes(`music`)) {
+        line1P.innerText = `My Chrysalis Highwayman`;
+      }
+      // Jokes
       else if (text.includes(`tell me a joke`)) {
         line1P.innerText = random(customerJoke);
         jokeSound.play();
       }
+      else if (text.includes(`ribs`)) {
+        line1P.innerText = `Ribs - Mouth Dreams by Neil Cicierega`;
+        ribsMusic.play();
+      }
+      // Moving on to the next customer
       else if (text.includes(`next customer`)) {
         itemImage.src = random(itemImages);
         clientImage.src = random(clientImages);
         line1P.innerText = random(dialogue);
+        boughtItem -= 1;
       }
-      else if (text.includes(`buy`)) {
+      // Closing deals/buying items
+      else if ((boughtItem < 1) && (text.includes(`buy`))) {
         line1P.innerText = `You got a deal.`;
         amountP.innerText -= priceP.innerText;
+        boughtItem += 1;
+        if (itemImage.src.includes (`Item-01`)) {
+          wormCount += 1;
+        }
+        if (itemImage.src.includes (`Item-02`)) {
+          flowerCount += 1;
+        }
+        if (itemImage.src.includes (`Item-03`)) {
+          gemCount += 1;
+        }
+        if (itemImage.src.includes (`Item-04`)) {
+          folmarCount += 1;
+        }
+        if (itemImage.src.includes (`Item-05`)) {
+          vaseCount += 1;
+        }
+        if (itemImage.src.includes (`Item-06`)) {
+          beskarCount += 1;
+        }
+        if (itemImage.src.includes (`Item-07`)) {
+          spiceCount += 1;
+        }
+        if (itemImage.src.includes (`Item-08`)) {
+          drogoCount += 1;
+        }
+        if (itemImage.src.includes (`Item-09`)) {
+          ghostCount += 1;
+        }
+        if (itemImage.src.includes (`Item-10`)) {
+          organCount += 1;
+        }
+        if (itemImage.src.includes (`Item-11`)) {
+          uraniumCount += 1;
+        }
+        if (itemImage.src.includes (`Item-12`)) {
+          laserCount += 1;
+        }
       }
-      else if (text.includes(`what is this`)) {
+      if (amountP.innerText < 100) {
+        line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
+        moneyMusic.play();
+      }
+      else {
+        moneyMusic.pause(); // Stop the sound if it's not the right message
+      }
+      // Identifying items
+      if (text.includes(`what is this`)) {
         console.log(itemImage.src)
         if (itemImage.src.includes (`Item-01`)) {
           line1P.innerText = `It's a Vermit Worm.`
@@ -292,6 +382,7 @@ let keyPressed = (e) => {
           line1P.innerText = `It's a Laser Crystal.`
         }
       }
+      // Identifying stolen items
       else if (text.includes(`stolen`)) {
         let mandoStolen = clientImage.src.includes(`Mando`);
         if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
@@ -318,36 +409,45 @@ let keyPressed = (e) => {
           line1P.innerText = `No`
         }
       }
+      // Identifying Clients
       else if (text.includes(`who`)) {
         let mandoWho = clientImage.src.includes(`Mando`);
         if (mandoWho = true) {
           line1P.innerText = `I'm a Manlorian.`;
+          priceP.innerText += 25;
         }
         let ghostWho = clientImage.src.includes(`Ghost`);
         if (ghostWho = true) {
           line1P.innerText = `I'm a Ghost.`;
+          priceP.innerText += 15;
         }
         let drogoWho = clientImage.src.includes(`Drogo`);
         if (drogoWho = true) {
           line1P.innerText = `I'm a Drogo.`;
+          priceP.innerText += 10;
         }
         let javaWho = clientImage.src.includes(`Java`);
         if (javaWho = true) {
           line1P.innerText = `I'm a Java.`;
+          priceP.innerText += 10;
         }
         let gufWho = clientImage.src.includes(`GUF`);
         if (gufWho = true) {
           line1P.innerText = `I'm a Galactic Utopia Federation Officer.`;
+          priceP.innerText += 5;
         }
         let androidWho = clientImage.src.includes(`Android`);
         if (androidWho = true) {
           line1P.innerText = `I'm an Android.`;
+          priceP.innerText += 25;
         }
         let tadloanianWho = clientImage.src.includes(`Tadloanian`);
         if (tadloanianWho = true) {
           line1P.innerText = `I'm a Tadloanian.`;
+          priceP.innerText += 75;
         }
       }
+      // Stoey Information (Dialogue)
     else if ((text.includes(`Galactic Utopia Federation`)) && (clientImage.src.includes(`GUF`))) {
       line1P.innerText = random(gufResponse);
     }
