@@ -16,16 +16,8 @@ let mainMusic = new Audio(`assets/sounds/mainMusic.wav`);
 let moneyMusic = new Audio(`assets/sounds/moneyMusic.wav`);
 let ribsMusic = new Audio(`assets/sounds/ribsMusic.wav`);
 
-if (typeof mainMusic.loop == 'boolean') {
-  mainMusic.loop = true;
-}
-else {
-    mainMusic.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-  }, false);
-}
 mainMusic.play();
+mainMusic.loop = true;
 
 let clientImage = document.getElementById(`client-image`);
 let clientImages = [
@@ -219,7 +211,6 @@ if (line1 === `Give me 300$.`) {
   priceP.innerText = 300;
 }
 
-const kd = document.querySelectorAll(".key");
 const textbox = document.querySelector(".textbox");
 
 let keyPressed = (e) => {
@@ -276,22 +267,32 @@ let keyPressed = (e) => {
       }
       else if (text.includes(`music`)) {
         line1P.innerText = `My Chrysalis Highwayman`;
+        ribsMusic.pause();
+        moneyMusic.pause();
+        mainMusic.pause();
+        mainMusic.play();
       }
       // Jokes
       else if (text.includes(`tell me a joke`)) {
         line1P.innerText = random(customerJoke);
+        mainMusic.pause();
         jokeSound.play();
       }
       else if (text.includes(`ribs`)) {
         line1P.innerText = `Ribs - Mouth Dreams by Neil Cicierega`;
+        mainMusic.pause();
         ribsMusic.play();
       }
       // Moving on to the next customer
       else if (text.includes(`next customer`)) {
+        ribsMusic.pause();
+        moneyMusic.pause();
+        mainMusic.pause();
         itemImage.src = random(itemImages);
         clientImage.src = random(clientImages);
         line1P.innerText = random(dialogue);
         boughtItem -= 1;
+        mainMusic.play();
       }
       // Closing deals/buying items
       else if ((boughtItem < 1) && (text.includes(`buy`))) {
@@ -337,10 +338,12 @@ let keyPressed = (e) => {
       }
       if (amountP.innerText < 100) {
         line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
+        mainMusic.pause();
         moneyMusic.play();
       }
       else {
         moneyMusic.pause(); // Stop the sound if it's not the right message
+        mainMusic.Play();
       }
       // Identifying items
       if (text.includes(`what is this`)) {
@@ -461,13 +464,51 @@ let keyPressed = (e) => {
       line1P.innerText = random(customerResponse);
     }
     if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
-       // secretSound.pause(); // May not need
+       secretSound.pause();
+       mainMusic.pause();
        secretSound.currentTime = 0; // Set to the start
        secretSound.play(); // Play it
     }
     else {
       secretSound.pause(); // Stop the sound if it's not the secret tunnel message
+      mainMusic.play();
     }
+  }
+// Cheat Codes (for DEV purposes only)
+  if (kc === 49) { // Test if the main music is working (Numpad 1)
+    jokeSound.pause();
+    secretSound.pause();
+    moneyMusic.pause();
+    ribsMusic.pause();
+    mainMusic.play();
+  }
+  if (kc === 50) { // Test if the ribs music is working (Numpad 2)
+    jokeSound.pause();
+    secretSound.pause();
+    moneyMusic.pause();
+    ribsMusic.play();
+    mainMusic.pause();
+  }
+  if (kc === 51) { // Test if the money music is working (Numpad 3)
+    jokeSound.pause();
+    secretSound.pause();
+    moneyMusic.play();
+    ribsMusic.pause();
+    mainMusic.pause();
+  }
+  if (kc === 52) { // Test if the secret sound is working (Numpad 4)
+    jokeSound.pause();
+    secretSound.play();
+    moneyMusic.pause();
+    ribsMusic.pause();
+    mainMusic.pause();
+  }
+  if (kc === 53) { // Test if the joke sound is working (Numpad 5)
+    jokeSound.play();
+    secretSound.pause();
+    moneyMusic.pause();
+    ribsMusic.pause();
+    mainMusic.pause();
   }
 }
 
@@ -477,5 +518,4 @@ document.addEventListener('keypress', function (e) {
         return false;
     }
 });
-
 window.addEventListener("keydown", keyPressed);
