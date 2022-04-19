@@ -9,16 +9,15 @@ Additionally, there is a mock/fake trailer YouTube link in the readme file to sh
 */
 
 "use strict";
-
+// Music (Credits display in the customer's text when play and or asked)
 let secretSound = new Audio(`assets/sounds/secret.wav`);
 let jokeSound = new Audio(`assets/sounds/joke.wav`);
 let mainMusic = new Audio(`assets/sounds/mainMusic.wav`);
 let moneyMusic = new Audio(`assets/sounds/moneyMusic.wav`);
 let ribsMusic = new Audio(`assets/sounds/ribsMusic.wav`);
-
 mainMusic.play();
 mainMusic.loop = true;
-
+// Item & Client images
 let clientImage = document.getElementById(`client-image`);
 let clientImages = [
   `assets/images/clients/Tadloanian-01.png`,
@@ -38,12 +37,6 @@ let clientImages = [
   `assets/images/clients/Mando-03.png`
 ];
 clientImage.src = random(clientImages);
-let dialogue = [
-  `Give me 100$.`,
-  `Give me 200$.`,
-  `Give me 300$.`
-];
-
 let itemImage = document.getElementById(`item-image`);
 let itemImages = [
   `assets/images/items/Item-01.png`,
@@ -60,7 +53,12 @@ let itemImages = [
   `assets/images/items/Item-12.png`
 ];
 itemImage.src = random(itemImages);
-
+// Customer dialogue
+let dialogue = [
+  `Give me 100$.`,
+  `Give me 200$.`,
+  `Give me 300$.`
+];
 let customerJoke = [
   `Whats the best thing about the Swiss?
   Idk, but their flag is a big plus.`,
@@ -187,7 +185,6 @@ let laserCount = 0;
 let line1 = random(dialogue);
 let line2 = document.getElementById(`line-2`);
 let line1P = document.getElementById(`line-1`);
-
 line1P.innerText = line1;
 
 function random(array) {
@@ -212,7 +209,6 @@ if (line1 === `Give me 300$.`) {
 }
 
 const textbox = document.querySelector(".textbox");
-
 let keyPressed = (e) => {
   let kc = e.keyCode;
   let text = textbox.value;
@@ -450,7 +446,7 @@ let keyPressed = (e) => {
           priceP.innerText += 75;
         }
       }
-      // Stoey Information (Dialogue)
+      // Story Information (Dialogue)
     else if ((text.includes(`Galactic Utopia Federation`)) && (clientImage.src.includes(`GUF`))) {
       line1P.innerText = random(gufResponse);
     }
