@@ -168,7 +168,7 @@ let wormResponse = [
 ];
 // Detetect if the item has been bought already
 let boughtItem = 0;
-// Count for item inventory (selling)
+// Count for item inventory (selling) [INCOMPLETE]
 let wormCount = 0;
 let flowerCount = 0;
 let gemCount = 0;
@@ -390,6 +390,7 @@ let keyPressed = (e) => {
         }
         else if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === true)) {
           line1P.innerText = `No`
+          priceP.innerText += 100;
         }
         let ghostStolen = clientImage.src.includes(`Ghost`);
         if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === false)) {
@@ -398,6 +399,7 @@ let keyPressed = (e) => {
         }
         else if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === true)) {
           line1P.innerText = `No`
+          priceP.innerText += 50;
         }
         let organStolen = itemImage.src.includes(`Item-10`);
         if ((itemImage.src.includes (`Item-10`)) && (organStolen === true)) {
@@ -406,6 +408,7 @@ let keyPressed = (e) => {
         }
         else {
           line1P.innerText = `No`
+          priceP.innerText += 50;
         }
       }
       // Identifying Clients
