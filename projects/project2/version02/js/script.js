@@ -73,9 +73,9 @@ Because they make up everything.`
 let customerResponse = [
   `What?`,
   `That's not right.`,
-  `I dont understand what you're saying.`,
+  `I don't understand what you're saying.`,
   `Huh?`,
-  `Isnt this a pawn shop?`,
+  `Isn't this a pawn shop?`,
   `I want to barter.`,
   `Secret Tunnel! [Hidden Easter Egg]`
 ];
@@ -213,279 +213,262 @@ const textbox = document.querySelector(".textbox");
 let keyPressed = (e) => {
   let kc = e.keyCode;
   let text = textbox.value;
-    // Basic UI update based on enter
-    if (kc === 13) {
-      textbox.value = ``; // Clear textbox
-      line2.innerText = text; // Move the text into the bubble
-      // Customer Response / Costomer & User Interaction
-      if (text.includes(`huh`)) {
-        line1P.innerText = random(customerResponse02);
-      }
-      // Identifying items
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-01`))) {
-        line1P.innerText = random(wormResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-02`))) {
-        line1P.innerText = random(flowerResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-03`))) {
-        line1P.innerText = random(gemResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-04`))) {
-        line1P.innerText = random(folmarResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-05`))) {
-        line1P.innerText = random(vaseResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-06`))) {
-        line1P.innerText = random(beskarResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-07`))) {
-        line1P.innerText = random(spiceResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-08`))) {
-        line1P.innerText = random(drogoResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-09`))) {
-        line1P.innerText = random(ghostResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-10`))) {
-        line1P.innerText = random(organResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-11`))) {
-        line1P.innerText = random(uraniumResponse);
-      }
-      else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-12`))) {
-        line1P.innerText = random(laserResponse);
-      }
-      // What are credits
-      else if (text.includes(`what are credits`)) {
-        line1P.innerText = random(customerResponse03);
-      }
-      else if (text.includes(`music`)) {
-        line1P.innerText = `My Chrysalis Highwayman`;
-        ribsMusic.pause();
-        moneyMusic.pause();
-        mainMusic.pause();
-        mainMusic.play();
-      }
-      // Jokes
-      else if (text.includes(`tell me a joke`)) {
-        line1P.innerText = random(customerJoke);
-        mainMusic.pause();
-        jokeSound.currentTime = 0; // Set to the start
-        jokeSound.play();
-      }
-      else if (text.includes(`ribs`)) {
-        line1P.innerText = `Ribs - Mouth Dreams by Neil Cicierega`;
-        mainMusic.pause();
-        ribsMusic.currentTime = 0; // Set to the start
-        ribsMusic.play();
-      }
-      // Moving on to the next customer
-      else if (text.includes(`next customer`)) {
-        fishSound.pause();
-        secretSound.pause();
-        jokeSound.pause();
-        ribsMusic.pause();
-        moneyMusic.pause();
-        mainMusic.pause();
-        itemImage.src = random(itemImages);
-        clientImage.src = random(clientImages);
-        line1P.innerText = random(dialogue);
+  // Basic UI update based on enter
+  if (kc === 13) {
+    textbox.value = ``; // Clear textbox
+    line2.innerText = text; // Move the text into the bubble
+    // Customer Response / Costomer & User Interaction
+    if (text.includes(`huh`)) {
+      line1P.innerText = random(customerResponse02);
+    }
+    // Identifying items
+    else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-01`))) {
+      line1P.innerText = random(wormResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-02`))) {
+      line1P.innerText = random(flowerResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-03`))) {
+      line1P.innerText = random(gemResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-04`))) {
+      line1P.innerText = random(folmarResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-05`))) {
+      line1P.innerText = random(vaseResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-06`))) {
+      line1P.innerText = random(beskarResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-07`))) {
+      line1P.innerText = random(spiceResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-08`))) {
+      line1P.innerText = random(drogoResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-09`))) {
+      line1P.innerText = random(ghostResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-10`))) {
+      line1P.innerText = random(organResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-11`))) {
+      line1P.innerText = random(uraniumResponse);
+    } else if ((text.includes(`details`)) && (itemImage.src.includes(`Item-12`))) {
+      line1P.innerText = random(laserResponse);
+    }
+    // What are credits
+    else if (text.includes(`what are credits`)) {
+      line1P.innerText = random(customerResponse03);
+    }
+    // Ask what the main music is
+    else if (text.includes(`music`)) {
+      line1P.innerText = `My Chrysalis Highwayman`;
+      ribsMusic.pause();
+      moneyMusic.pause();
+      mainMusic.pause();
+      mainMusic.play();
+    }
+    // Jokes
+    else if (text.includes(`tell me a joke`)) {
+      line1P.innerText = random(customerJoke);
+      mainMusic.pause();
+      jokeSound.currentTime = 0; // Set to the start
+      jokeSound.play();
+    } else if (text.includes(`ribs`)) {
+      line1P.innerText = `Ribs - Mouth Dreams by Neil Cicierega`;
+      mainMusic.pause();
+      ribsMusic.currentTime = 0; // Set to the start
+      ribsMusic.play();
+    }
+    // Moving on to the next customer
+    else if (text.includes(`next customer`)) {
+      fishSound.pause();
+      secretSound.pause();
+      jokeSound.pause();
+      ribsMusic.pause();
+      moneyMusic.pause();
+      itemImage.src = random(itemImages);
+      clientImage.src = random(clientImages);
+      line1P.innerText = random(dialogue);
+      mainMusic.play();
+      if (boughtItem > 0) {
         boughtItem -= 1;
-        mainMusic.play();
       }
-      // Closing deals/buying items
-      else if ((boughtItem < 1) && (text.includes(`buy`))) {
-        line1P.innerText = `You got a deal.`;
-        amountP.innerText -= priceP.innerText;
-        boughtItem += 1;
-        if (itemImage.src.includes (`Item-01`)) {
-          wormCount += 1;
-        }
-        if (itemImage.src.includes (`Item-02`)) {
-          flowerCount += 1;
-        }
-        if (itemImage.src.includes (`Item-03`)) {
-          gemCount += 1;
-        }
-        if (itemImage.src.includes (`Item-04`)) {
-          folmarCount += 1;
-        }
-        if (itemImage.src.includes (`Item-05`)) {
-          vaseCount += 1;
-        }
-        if (itemImage.src.includes (`Item-06`)) {
-          beskarCount += 1;
-        }
-        if (itemImage.src.includes (`Item-07`)) {
-          spiceCount += 1;
-        }
-        if (itemImage.src.includes (`Item-08`)) {
-          drogoCount += 1;
-        }
-        if (itemImage.src.includes (`Item-09`)) {
-          ghostCount += 1;
-        }
-        if (itemImage.src.includes (`Item-10`)) {
-          organCount += 1;
-        }
-        if (itemImage.src.includes (`Item-11`)) {
-          uraniumCount += 1;
-        }
-        if (itemImage.src.includes (`Item-12`)) {
-          laserCount += 1;
-        }
+    }
+    // Closing deals/buying items
+    else if ((boughtItem < 1) && (text.includes(`buy`))) {
+      line1P.innerText = `You got a deal.`;
+      amountP.innerText -= priceP.innerText;
+      boughtItem += 1;
+      if (itemImage.src.includes(`Item-01`)) {
+        wormCount += 1;
       }
-      if (amountP.innerText < 100) {
-        line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
-        mainMusic.pause();
-        moneyMusic.currentTime = 0; // Set to the start
-        moneyMusic.play();
+      if (itemImage.src.includes(`Item-02`)) {
+        flowerCount += 1;
       }
-      // Identifying items
-      if (text.includes(`what is this`)) {
-        console.log(itemImage.src)
-        if (itemImage.src.includes (`Item-01`)) {
-          line1P.innerText = `It's a Vermit Worm.`
-        }
-        if (itemImage.src.includes(`Item-02`)) {
-          line1P.innerText = `It's a Ugurt Flower.`
-        }
-        if (itemImage.src.includes(`Item-03`)) {
-          line1P.innerText = `It's a Gem Berry.`
-        }
-        if (itemImage.src.includes(`Item-04`)) {
-          line1P.innerText = `It's a Folmar in a Jar.`
-        }
-        if (itemImage.src.includes(`Item-05`)) {
-          line1P.innerText = `It's a Ceremonial Vase.`
-        }
-        if (itemImage.src.includes(`Item-06`)) {
-          line1P.innerText = `It's a Beskar Steel Ingot.`
-        }
-        if (itemImage.src.includes(`Item-07`)) {
-          line1P.innerText = `It's a Pound of Spice.`
-        }
-        if (itemImage.src.includes(`Item-08`)) {
-          line1P.innerText = `It's a Drogo Scale.`
-        }
-        if (itemImage.src.includes(`Item-09`)) {
-          line1P.innerText = `It's a Ghost Scripture.`
-        }
-        if (itemImage.src.includes(`Item-10`)) {
-          line1P.innerText = `It's a Unknown Organ.`
-        }
-        if (itemImage.src.includes(`Item-11`)) {
-          line1P.innerText = `It's a Uranium Rod.`
-        }
-        if (itemImage.src.includes(`Item-12`)) {
-          line1P.innerText = `It's a Laser Crystal.`
-        }
+      if (itemImage.src.includes(`Item-03`)) {
+        gemCount += 1;
       }
-      // Identifying stolen items
-      else if (text.includes(`stolen`)) {
-        let mandoStolen = clientImage.src.includes(`Mando`);
-        if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === false)) {
-          line1P.innerText = `Yes`;
-          priceP.innerText -= 50;
-        }
-        else if ((itemImage.src.includes (`Item-06`)) && (mandoStolen === true)) {
-          line1P.innerText = `No`
-          priceP.innerText += 100;
-        }
-        let ghostStolen = clientImage.src.includes(`Ghost`);
-        if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === false)) {
-          line1P.innerText = `Yes`;
-          priceP.innerText -= 50;
-        }
-        else if ((itemImage.src.includes (`Item-09`)) && (ghostStolen === true)) {
-          line1P.innerText = `No`
-          priceP.innerText += 50;
-        }
-        let organStolen = itemImage.src.includes(`Item-10`);
-        if ((itemImage.src.includes (`Item-10`)) && (organStolen === true)) {
-          line1P.innerText = `Yes`;
-          priceP.innerText -= 50;
-        }
-        else {
-          line1P.innerText = `No`
-          priceP.innerText += 50;
-        }
+      if (itemImage.src.includes(`Item-04`)) {
+        folmarCount += 1;
       }
-      // Identifying Clients
-      else if (text.includes(`who`)) {
-        let mandoWho = clientImage.src.includes(`Mando`);
-        if (mandoWho = true) {
-          line1P.innerText = `I'm a Manlorian.`;
-          priceP.innerText += 25;
-        }
-        let ghostWho = clientImage.src.includes(`Ghost`);
-        if (ghostWho = true) {
-          line1P.innerText = `I'm a Ghost.`;
-          priceP.innerText += 15;
-        }
-        let drogoWho = clientImage.src.includes(`Drogo`);
-        if (drogoWho = true) {
-          line1P.innerText = `I'm a Drogo.`;
-          priceP.innerText += 10;
-        }
-        let javaWho = clientImage.src.includes(`Java`);
-        if (javaWho = true) {
-          line1P.innerText = `I'm a Java.`;
-          priceP.innerText += 10;
-        }
-        let gufWho = clientImage.src.includes(`GUF`);
-        if (gufWho = true) {
-          line1P.innerText = `I'm a Galactic Utopia Federation Officer.`;
-          priceP.innerText += 5;
-        }
-        let androidWho = clientImage.src.includes(`Android`);
-        if (androidWho = true) {
-          line1P.innerText = `I'm an Android.`;
-          priceP.innerText += 25;
-        }
-        let tadloanianWho = clientImage.src.includes(`Tadloanian`);
-        if (tadloanianWho = true) {
-          line1P.innerText = `I'm a Tadloanian.`;
-          priceP.innerText += 75;
-        }
+      if (itemImage.src.includes(`Item-05`)) {
+        vaseCount += 1;
       }
-      // Story Information (Dialogue)
+      if (itemImage.src.includes(`Item-06`)) {
+        beskarCount += 1;
+      }
+      if (itemImage.src.includes(`Item-07`)) {
+        spiceCount += 1;
+      }
+      if (itemImage.src.includes(`Item-08`)) {
+        drogoCount += 1;
+      }
+      if (itemImage.src.includes(`Item-09`)) {
+        ghostCount += 1;
+      }
+      if (itemImage.src.includes(`Item-10`)) {
+        organCount += 1;
+      }
+      if (itemImage.src.includes(`Item-11`)) {
+        uraniumCount += 1;
+      }
+      if (itemImage.src.includes(`Item-12`)) {
+        laserCount += 1;
+      }
+    }
+    if (amountP.innerText < 100) {
+      line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
+      mainMusic.pause();
+      moneyMusic.currentTime = 0; // Set to the start
+      moneyMusic.play();
+    }
+    // Identifying items
+    if (text.includes(`what is this`)) {
+      console.log(itemImage.src)
+      if (itemImage.src.includes(`Item-01`)) {
+        line1P.innerText = `It's a Vermit Worm.`
+      }
+      if (itemImage.src.includes(`Item-02`)) {
+        line1P.innerText = `It's a Ugurt Flower.`
+      }
+      if (itemImage.src.includes(`Item-03`)) {
+        line1P.innerText = `It's a Gem Berry.`
+      }
+      if (itemImage.src.includes(`Item-04`)) {
+        line1P.innerText = `It's a Folmar in a Jar.`
+      }
+      if (itemImage.src.includes(`Item-05`)) {
+        line1P.innerText = `It's a Ceremonial Vase.`
+      }
+      if (itemImage.src.includes(`Item-06`)) {
+        line1P.innerText = `It's a Beskar Steel Ingot.`
+      }
+      if (itemImage.src.includes(`Item-07`)) {
+        line1P.innerText = `It's a Pound of Spice.`
+      }
+      if (itemImage.src.includes(`Item-08`)) {
+        line1P.innerText = `It's a Drogo Scale.`
+      }
+      if (itemImage.src.includes(`Item-09`)) {
+        line1P.innerText = `It's a Ghost Scripture.`
+      }
+      if (itemImage.src.includes(`Item-10`)) {
+        line1P.innerText = `It's a Unknown Organ.`
+      }
+      if (itemImage.src.includes(`Item-11`)) {
+        line1P.innerText = `It's a Uranium Rod.`
+      }
+      if (itemImage.src.includes(`Item-12`)) {
+        line1P.innerText = `It's a Laser Crystal.`
+      }
+    }
+    // Identifying stolen items
+    else if (text.includes(`stolen`)) {
+      let mandoStolen = clientImage.src.includes(`Mando`);
+      if ((itemImage.src.includes(`Item-06`)) && (mandoStolen === false)) {
+        line1P.innerText = `Yes`;
+        priceP.innerText -= 50;
+      } else if ((itemImage.src.includes(`Item-06`)) && (mandoStolen === true)) {
+        line1P.innerText = `No`
+        priceP.innerText += 100;
+      }
+      let ghostStolen = clientImage.src.includes(`Ghost`);
+      if ((itemImage.src.includes(`Item-09`)) && (ghostStolen === false)) {
+        line1P.innerText = `Yes`;
+        priceP.innerText -= 50;
+      } else if ((itemImage.src.includes(`Item-09`)) && (ghostStolen === true)) {
+        line1P.innerText = `No`
+        priceP.innerText += 50;
+      }
+      let organStolen = itemImage.src.includes(`Item-10`);
+      if ((itemImage.src.includes(`Item-10`)) && (organStolen === true)) {
+        line1P.innerText = `Yes`;
+        priceP.innerText -= 50;
+      } else {
+        line1P.innerText = `No`
+        priceP.innerText += 50;
+      }
+    }
+    // Identifying Clients
+    else if (text.includes(`who`)) {
+      let mandoWho = clientImage.src.includes(`Mando`);
+      if (mandoWho = true) {
+        line1P.innerText = `I'm a Manlorian.`;
+        priceP.innerText += 25;
+      }
+      let ghostWho = clientImage.src.includes(`Ghost`);
+      if (ghostWho = true) {
+        line1P.innerText = `I'm a Ghost.`;
+        priceP.innerText += 15;
+      }
+      let drogoWho = clientImage.src.includes(`Drogo`);
+      if (drogoWho = true) {
+        line1P.innerText = `I'm a Drogo.`;
+        priceP.innerText += 10;
+      }
+      let javaWho = clientImage.src.includes(`Java`);
+      if (javaWho = true) {
+        line1P.innerText = `I'm a Java.`;
+        priceP.innerText += 10;
+      }
+      let gufWho = clientImage.src.includes(`GUF`);
+      if (gufWho = true) {
+        line1P.innerText = `I'm a Galactic Utopia Federation Officer.`;
+        priceP.innerText += 5;
+      }
+      let androidWho = clientImage.src.includes(`Android`);
+      if (androidWho = true) {
+        line1P.innerText = `I'm an Android.`;
+        priceP.innerText += 25;
+      }
+      let tadloanianWho = clientImage.src.includes(`Tadloanian`);
+      if (tadloanianWho = true) {
+        line1P.innerText = `I'm a Tadloanian.`;
+        priceP.innerText += 75;
+      }
+    }
+    // Story Information (Dialogue)
     else if ((text.includes(`Galactic Utopia Federation`)) && (clientImage.src.includes(`GUF`))) {
       line1P.innerText = random(gufResponse);
-    }
-    else if ((text.includes(`GUF`)) && (clientImage.src.includes(`GUF`))) {
+    } else if ((text.includes(`GUF`)) && (clientImage.src.includes(`GUF`))) {
       line1P.innerText = random(gufResponse);
-    }
-    else if ((text.includes(`Seven Suns war`)) && (clientImage.src.includes(`GUF`))) {
+    } else if ((text.includes(`Seven Suns war`)) && (clientImage.src.includes(`GUF`))) {
       line1P.innerText = `It was war in which the Rebels and Aero Alliance fought for control of the universe, named after the destruction of Winturb and Poipo and their shared seven suns`;
-    }
-    else {
+    } else {
       line1P.innerText = random(customerResponse);
     }
     if (line1P.innerText === `Secret Tunnel! [Hidden Easter Egg]`) {
-       secretSound.pause();
-       mainMusic.pause();
-       secretSound.currentTime = 0; // Set to the start
-       secretSound.play(); // Play it
-    }
-    else {
+      secretSound.pause();
+      mainMusic.pause();
+      secretSound.currentTime = 0; // Set to the start
+      secretSound.play(); // Play it
+    } else {
       secretSound.pause(); // Stop the sound if it's not the secret tunnel message
       mainMusic.play();
     }
   }
 
-// Play an easter egg if you click on the Folmar in a Jar
-document.getElementById("item-image").addEventListener("click", clickedFish);
-function clickedFish() {
-  if (itemImage.src.includes(`Item-04`)) {
-    document.getElementById("item-image").innerHTML = fishSound.play();
+  // Play an easter egg if you click on the Folmar in a Jar
+  document.getElementById("item-image").addEventListener("click", clickedFish);
+  function clickedFish() {
+    if (itemImage.src.includes(`Item-04`)) {
+      document.getElementById("item-image").innerHTML = fishSound.play();
+    }
   }
-}
 
-// Cheat Codes (for DEV purposes only)
+  // Cheat Codes (for DEV purposes only)
   if (kc === 49) { // Test if the main music is working (Numpad 1)
     fishSound.pause();
     jokeSound.pause();
@@ -536,10 +519,10 @@ function clickedFish() {
   }
 }
 
-document.addEventListener('keypress', function (e) {
-    if (e.keyCode === 13) {
-        e.preventDefault();
-        return false;
-    }
+document.addEventListener('keypress', function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    return false;
+  }
 });
 window.addEventListener("keydown", keyPressed);
