@@ -11,6 +11,7 @@ Additionally, there is a mock/fake trailer in the form of a YouTube link in the 
 "use strict";
 // Music (Credits display in the customer's text when play and or asked)
 let secretSound = new Audio(`assets/sounds/secret.wav`);
+let fishSound = new Audio(`assets/sounds/fish.wav`);
 let jokeSound = new Audio(`assets/sounds/joke.wav`);
 let mainMusic = new Audio(`assets/sounds/mainMusic.wav`);
 let moneyMusic = new Audio(`assets/sounds/moneyMusic.wav`);
@@ -272,15 +273,20 @@ let keyPressed = (e) => {
       else if (text.includes(`tell me a joke`)) {
         line1P.innerText = random(customerJoke);
         mainMusic.pause();
+        jokeSound.currentTime = 0; // Set to the start
         jokeSound.play();
       }
       else if (text.includes(`ribs`)) {
         line1P.innerText = `Ribs - Mouth Dreams by Neil Cicierega`;
         mainMusic.pause();
+        ribsMusic.currentTime = 0; // Set to the start
         ribsMusic.play();
       }
       // Moving on to the next customer
       else if (text.includes(`next customer`)) {
+        fishSound.pause();
+        secretSound.pause();
+        jokeSound.pause();
         ribsMusic.pause();
         moneyMusic.pause();
         mainMusic.pause();
@@ -335,11 +341,8 @@ let keyPressed = (e) => {
       if (amountP.innerText < 100) {
         line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
         mainMusic.pause();
+        moneyMusic.currentTime = 0; // Set to the start
         moneyMusic.play();
-      }
-      else {
-        moneyMusic.pause(); // Stop the sound if it's not the right message
-        mainMusic.Play();
       }
       // Identifying items
       if (text.includes(`what is this`)) {
@@ -473,8 +476,18 @@ let keyPressed = (e) => {
       mainMusic.play();
     }
   }
+
+// Play an easter egg if you click on the Folmar in a Jar
+document.getElementById("item-image").addEventListener("click", clickedFish);
+function clickedFish() {
+  if (itemImage.src.includes(`Item-04`)) {
+    document.getElementById("item-image").innerHTML = fishSound.play();
+  }
+}
+
 // Cheat Codes (for DEV purposes only)
   if (kc === 49) { // Test if the main music is working (Numpad 1)
+    fishSound.pause();
     jokeSound.pause();
     secretSound.pause();
     moneyMusic.pause();
@@ -482,6 +495,7 @@ let keyPressed = (e) => {
     mainMusic.play();
   }
   if (kc === 50) { // Test if the ribs music is working (Numpad 2)
+    fishSound.pause();
     jokeSound.pause();
     secretSound.pause();
     moneyMusic.pause();
@@ -489,6 +503,7 @@ let keyPressed = (e) => {
     mainMusic.pause();
   }
   if (kc === 51) { // Test if the money music is working (Numpad 3)
+    fishSound.pause();
     jokeSound.pause();
     secretSound.pause();
     moneyMusic.play();
@@ -496,6 +511,7 @@ let keyPressed = (e) => {
     mainMusic.pause();
   }
   if (kc === 52) { // Test if the secret sound is working (Numpad 4)
+    fishSound.pause();
     jokeSound.pause();
     secretSound.play();
     moneyMusic.pause();
@@ -503,7 +519,16 @@ let keyPressed = (e) => {
     mainMusic.pause();
   }
   if (kc === 53) { // Test if the joke sound is working (Numpad 5)
+    fishSound.pause();
     jokeSound.play();
+    secretSound.pause();
+    moneyMusic.pause();
+    ribsMusic.pause();
+    mainMusic.pause();
+  }
+  if (kc === 54) { // Test if the joke sound is working (Numpad 6)
+    fishSound.play();
+    jokeSound.pause();
     secretSound.pause();
     moneyMusic.pause();
     ribsMusic.pause();
