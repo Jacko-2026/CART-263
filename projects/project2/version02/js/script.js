@@ -1,11 +1,11 @@
 /**
-Pawn Shop Sim
+Intergalactic Pawn Shop Simulator
 Jack Taddeo
 
 The aim of the game is to buy, sell, and trade items that come to your shop by interacting with the customers.
 In this build of the game, only the ability to buy and communicate with the customer is available.
-There is an additional companion guide that gives loose bits of story and client information attached to this project.
-Additionally, there is a mock/fake trailer YouTube link in the readme file to show the original intent and possible future for this game.
+There is an additional companion guide that gives loose bits of story and client / item information attached to this project.
+Additionally, there is a mock/fake trailer in the form of a YouTube link in the readme file to show the original intent and possible future for this game.
 */
 
 "use strict";
