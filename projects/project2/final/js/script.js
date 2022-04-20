@@ -328,7 +328,7 @@ let keyPressed = (e) => {
         laserCount += 1;
       }
     }
-    if (amountP.innerText < 100) {
+    else if (amountP.innerText < 100) {
       line1P.innerText = `Loadsamoney (Doin' Up the House) by Harry Enfield`;
       mainMusic.pause();
       moneyMusic.currentTime = 0; // Set to the start
